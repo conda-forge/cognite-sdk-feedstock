@@ -13,7 +13,7 @@ build:
   noarch: python
   preserve_egg_dir: yes
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
@@ -31,13 +31,11 @@ requirements:
     - pip >=20.0.0
     - typing_extensions >=4
     - graphlib-backport >=1.0.0,<2.0.0
+    - backports.zoneinfo >=0.2.1
     - python-tzdata >=2023.3
-  run_constrained:
     - numpy >=1.20.0,<2.0.0
-    - sympy *
     - pandas >=1.4
-    - backports-zoneinfo >=0.2.1
-    - tzdata >=2023.3
+  run_constrained:
     - geopandas >=0.10.0
     - shapely >=1.7.0
     - PyYAML >=6.0.0,<7.0.0
