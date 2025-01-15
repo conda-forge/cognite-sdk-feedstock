@@ -1,5 +1,6 @@
 {% set name = "cognite-sdk" %}
-{% set version = "7.71.0" %}
+{% set version = "7.72.1" %}
+{% set python_min = "3.10" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/cognite_sdk-{{ version }}.tar.gz
-  sha256: 8240b79296d41f53e2de613a1df4ac152c421762b58e1567a70c297936d55d30
+  sha256: 39d4142c265d67f57af804e8d01f8fb1ed59589228de3143ae1bdf1730c20566
 
 build:
   noarch: python
@@ -17,25 +18,24 @@ build:
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - poetry >=1.6
     - poetry-core
     - pip
   run:
-    - python >=3.8.0,<4.0.0
-    - requests >=2.0.0,<3.0.0
+    - python >={{ python_min }}
+    - requests >=2.27.0,<3.0.0
     - requests-oauthlib >=1.0.0,<2.0.0
-    - msal >=1.0.0,<2.0.0
-    - protobuf >=3.16.0
+    - msal >=1.31.0,<2.0.0
+    - packaging >=20.0.0
+    - protobuf >=4.0.0
     - pip >=20.0.0
     - typing_extensions >=4
-    - graphlib-backport >=1.0.0,<2.0.0
-    - backports.zoneinfo >=0.2.1
-    - python-tzdata >=2023.3
-    - numpy >=1.20.0,<2.0.0
-    - pandas >=1.4
+    - python-tzdata >=2024.1
+    - numpy >=1.25.0
+    - pandas >=2.1.0
   run_constrained:
-    - geopandas >=0.10.0
+    - geopandas >=0.14.0
     - shapely >=1.7.0
     - PyYAML >=6.0.0,<7.0.0
 
@@ -46,6 +46,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/cognitedata/cognite-sdk-python
