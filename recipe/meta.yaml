@@ -1,5 +1,5 @@
 {% set name = "cognite-sdk" %}
-{% set version = "7.91.2" %}
+{% set version = "8.0.2" %}
 {% set python_min = "3.10" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/cognite_sdk-{{ version }}.tar.gz
-  sha256: 8b826c841875097476d3f3fe8464cac07b6df689f20053151f9e30a494f8c1eb
+  sha256: e0bffc42ee0ea622f0afeb68f0975e91cb1b78bd8288a51fd30f3f9c1923649e
 
 build:
   noarch: python
